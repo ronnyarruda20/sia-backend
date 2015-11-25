@@ -6,10 +6,7 @@
 package br.edu.icec.sia.model;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
+import javax.persistence.*;
 /**
  *
  * @author Ronny
@@ -21,7 +18,8 @@ public class Alternativa implements Serializable {
     private Integer id;
     private String descricao;
     
-    @OneToMany
+    @ManyToOne
+    @JoinColumn(name = "questao")
     private Questao questao;
 
     public Alternativa() {
@@ -52,6 +50,14 @@ public class Alternativa implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Questao getQuestao() {
+        return questao;
+    }
+
+    public void setQuestao(Questao questao) {
+        this.questao = questao;
     }
     
     

@@ -6,9 +6,9 @@
 package br.edu.icec.sia.model;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import java.util.List;
+import javax.persistence.*;
+
 
 /**
  *
@@ -18,13 +18,17 @@ import javax.persistence.NamedQuery;
 @NamedQuery(
       name = "retornaQuestao",
       query = "from Questao q"
-              + " where Alternativa a q.id = a.questao.id "
+          + " where q.id = 1"
+            
 )
 public class Questao implements Serializable {
     
     @Id
     private Integer id;
     private String descricao;
+    
+    @OneToMany(mappedBy = "questao")
+    public List<Alternativa> listaDeAlternativa;
 
     public Questao() {
     }
