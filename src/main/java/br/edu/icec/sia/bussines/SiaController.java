@@ -6,8 +6,6 @@
 package br.edu.icec.sia.bussines;
 
 import br.edu.icec.sia.model.Alternativa;
-import br.edu.icec.sia.model.Questao;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

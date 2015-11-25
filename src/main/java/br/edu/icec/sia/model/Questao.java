@@ -21,15 +21,14 @@ import javax.persistence.*;
           + " where q.id = 1"
             
 )
+@SequenceGenerator(name = "QuestaoSequence", sequenceName = "QuestaoSeq", initialValue = 1, allocationSize = 1)
 public class Questao implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "QuestaoSequence")
     private Integer id;
     private String descricao;
     
-    @OneToMany(mappedBy = "questao")
-    public List<Alternativa> listaDeAlternativa;
-
     public Questao() {
     }
 

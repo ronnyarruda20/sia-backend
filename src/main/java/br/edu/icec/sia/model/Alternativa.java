@@ -12,14 +12,16 @@ import javax.persistence.*;
  * @author Ronny
  */
 @Entity
+@SequenceGenerator(name = "AlternativaSequence", sequenceName = "AlternativaSeq", initialValue = 1, allocationSize = 1)
 public class Alternativa implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AlternativaSequence")
     private Integer id;
     private String descricao;
     
     @ManyToOne
-    @JoinColumn(name = "questao")
+    @JoinColumn(name = "questaoId")
     private Questao questao;
 
     public Alternativa() {
@@ -29,13 +31,7 @@ public class Alternativa implements Serializable {
         this.id = id;
         this.descricao = descricao;
     }
-
-    public Alternativa(Integer id, String descricao, Questao questao) {
-        this.id = id;
-        this.descricao = descricao;
-        this.questao = questao;
-    }
-
+    
     public Integer getId() {
         return id;
     }
