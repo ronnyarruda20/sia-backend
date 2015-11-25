@@ -7,6 +7,7 @@ package br.edu.icec.sia.view;
 
 import br.edu.icec.sia.bussines.SiaController;
 import br.edu.icec.sia.model.Alternativa;
+import br.edu.icec.sia.model.Questao;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
@@ -27,7 +28,7 @@ public class SiaEndPoint {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/lista")
-  public List<Alternativa> retornaListaDeTeste(){
+  public List<Questao> retornaListaDeTeste(){
     
     return siaController.retornarListaComQuestao();
     

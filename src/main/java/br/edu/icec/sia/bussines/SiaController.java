@@ -6,6 +6,7 @@
 package br.edu.icec.sia.bussines;
 
 import br.edu.icec.sia.model.Alternativa;
+import br.edu.icec.sia.model.Questao;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -21,9 +22,9 @@ public class SiaController {
     @PersistenceContext
     private EntityManager entityManager;
     
-    public List<Alternativa> retornarListaComQuestao(){
+    public List<Questao> retornarListaComQuestao(){
         
-       return entityManager.createNamedQuery("retornaQuestao", Alternativa.class).getResultList();
+       return entityManager.createNamedQuery("retornaQuestao", Questao.class).getResultList();
     }
 
 }

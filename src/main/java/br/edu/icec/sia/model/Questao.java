@@ -17,10 +17,8 @@ import javax.persistence.*;
 @Entity
 @NamedQuery(
       name = "retornaQuestao",
-      query = "from Questao q"
-          + " where q.id = 1"
-            
-)
+      query = "from Questao q join q.Alternativa"    
+            )
 @SequenceGenerator(name = "QuestaoSequence", sequenceName = "QuestaoSeq", initialValue = 1, allocationSize = 1)
 public class Questao implements Serializable {
     
@@ -28,6 +26,9 @@ public class Questao implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "QuestaoSequence")
     private Integer id;
     private String descricao;
+    
+    @OneToMany
+    public Alternativa alternativa;
     
     public Questao() {
     }
