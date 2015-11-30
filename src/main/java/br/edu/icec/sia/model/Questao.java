@@ -17,10 +17,8 @@ import javax.persistence.*;
 @Entity
 @NamedQuery(
       name = "retornaQuestao",
-      query = "from Questao q"
-          + " where q.id = 1"
-            
-)
+      query = "from Questao q "    
+            )
 @SequenceGenerator(name = "QuestaoSequence", sequenceName = "QuestaoSeq", initialValue = 1, allocationSize = 1)
 public class Questao implements Serializable {
     
@@ -30,11 +28,6 @@ public class Questao implements Serializable {
     private String descricao;
     
     public Questao() {
-    }
-
-    public Questao(Integer id, String descricao) {
-        this.id = id;
-        this.descricao = descricao;
     }
 
     public Integer getId() {

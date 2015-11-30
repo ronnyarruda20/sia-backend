@@ -6,16 +6,9 @@
 package br.edu.icec.sia.view;
 
 import br.edu.icec.sia.bussines.SiaController;
-import br.edu.icec.sia.model.Alternativa;
 import br.edu.icec.sia.ws.rs.container.Autorizador;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
-import java.util.List;
 import javax.ejb.EJB;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -32,14 +25,6 @@ public class SiaEndPoint {
   @EJB
   SiaController siaController;
   
-  @GET
-  @Produces(MediaType.APPLICATION_JSON)
-  @Path("/lista")
-  public List<Alternativa> retornaListaDeTeste(){
-    
-    return siaController.retornarListaComQuestao();
-    
-  }
   
   //https://github.com/jwtk/jjwt
   @GET

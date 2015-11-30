@@ -19,10 +19,6 @@ public class Alternativa implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AlternativaSequence")
     private Integer id;
     private String descricao;
-    
-    @ManyToOne
-    @JoinColumn(name = "questaoId")
-    private Questao questao;
 
     public Alternativa() {
     }
@@ -46,14 +42,6 @@ public class Alternativa implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Questao getQuestao() {
-        return questao;
-    }
-
-    public void setQuestao(Questao questao) {
-        this.questao = questao;
     }
     
     
