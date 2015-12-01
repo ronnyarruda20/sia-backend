@@ -6,7 +6,6 @@
 package br.edu.icec.sia.bussines;
 
 
-import br.edu.icec.sia.model.Usuario;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
@@ -30,13 +29,9 @@ public class SiaController {
   //Autentica O usuario e gera uma Chave
   public String autenticarUsuario() {
     
-
-    Usuario usuario = new Usuario();
-    usuario.setNome("ronny");
-
     Key key = MacProvider.generateKey();
 
-    return Jwts.builder().setSubject(usuario.getNome()).signWith(SignatureAlgorithm.HS512, key).compact();
+    return Jwts.builder().setSubject("ronny").signWith(SignatureAlgorithm.HS512, key).compact();
 
    
   }

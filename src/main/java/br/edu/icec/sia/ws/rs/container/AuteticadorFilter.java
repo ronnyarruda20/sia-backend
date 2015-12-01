@@ -40,6 +40,8 @@ public class AuteticadorFilter implements ContainerRequestFilter {
       return;
     }
     
+    
+    
    // criar metodo que compara com token se for correto cliente pode acessar ao contrario erro 401.. não autorizado
         
 
