@@ -5,6 +5,8 @@
  */
 package br.edu.icec.sia.view;
 
+import br.edu.icec.sia.ws.rs.container.AuteticadorFilter;
+import br.edu.icec.sia.ws.rs.container.SiaCorsFilter;
 import java.util.HashSet;
 import java.util.Set;
 import javax.ws.rs.ApplicationPath;
@@ -23,6 +25,8 @@ public class SiaEndPointPath extends Application {
     final Set<Class<?>> classes = new HashSet<>();
 //  register root resource
     classes.add(SiaEndPoint.class);
+    classes.add(AuteticadorFilter.class);
+    classes.add(SiaCorsFilter.class);
     return classes;
   }
 

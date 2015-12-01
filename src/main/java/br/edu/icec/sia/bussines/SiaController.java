@@ -5,9 +5,12 @@
  */
 package br.edu.icec.sia.bussines;
 
-import br.edu.icec.sia.model.Alternativa;
-import br.edu.icec.sia.model.Questao;
-import java.util.List;
+
+import br.edu.icec.sia.model.Usuario;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.impl.crypto.MacProvider;
+import java.security.Key;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,12 +22,23 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class SiaController {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+  @PersistenceContext
+  private EntityManager entityManager;
+
+ 
+
+  //Autentica O usuario e gera uma Chave
+  public String autenticarUsuario() {
     
-    public List<Questao> retornarListaComQuestao(){
-        
-       return entityManager.createNamedQuery("retornaQuestao", Questao.class).getResultList();
-    }
+
+    Usuario usuario = new Usuario();
+    usuario.setNome("ronny");
+
+    Key key = MacProvider.generateKey();
+
+    return Jwts.builder().setSubject(usuario.getNome()).signWith(SignatureAlgorithm.HS512, key).compact();
+
+   
+  }
 
 }
