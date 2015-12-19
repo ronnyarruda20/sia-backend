@@ -3,10 +3,24 @@ DROP SCHEMA IF EXISTS appsia;
 CREATE SCHEMA appsia;
 
 
+CREATE TABLE appsia.usuario(
+       id INTEGER PRIMARY KEY,
+       nome VARCHAR(255),
+       senha VARCHAR(255)
+);
+
+CREATE SEQUENCE appsia.usuarioseq
+START WITH 1 
+INCREMENT BY 1
+CACHE 1;
+
+
 CREATE TABLE appsia.questao(
     id INTEGER PRIMARY KEY,
     descricao VARCHAR(255)
 );
+
+
 
 CREATE TABLE appsia.alternativa(
     id INTEGER PRIMARY KEY,
@@ -27,10 +41,11 @@ CACHE 1;
 
 
 
-
-
 SET @questaoId = nextval('appsia.questaseq');
 SET @alternativaId = nextval('appsia.alternativaseq');
+SET @usuarioId = nextval('appsia.usuarioseq');
+
+INSERT INTO appsia.usuario(id, nome, senha) VALUES (@usuarioId, 'ronny', '123');
 
 INSERT INTO appsia.questao(id, descricao) VALUES (@questaoId , 'Número de horas semanais que você se dedica aos estudos, excetuando-se as horas de aula:');
 
